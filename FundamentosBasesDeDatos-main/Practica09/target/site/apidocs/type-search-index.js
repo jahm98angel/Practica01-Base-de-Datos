@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"veterinaria.Conexion","l":"ConexionBD"},{"p":"veterinaria.Modelo","l":"Estetica"},{"p":"veterinaria.Modelo","l":"Supervisor"},{"p":"veterinaria.Repositorio","l":"SupervisorRepositorio"},{"p":"veterinaria.Servicio","l":"SupervisorServicio"}]

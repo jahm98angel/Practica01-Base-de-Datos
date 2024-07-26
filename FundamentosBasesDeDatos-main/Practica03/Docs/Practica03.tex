@@ -1,0 +1,66 @@
+
+  
+\documentclass{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{upgreek}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{dsfont}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usetikzlibrary{matrix}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\examnum}{\class}{\name}
+\runningheadrule
+\newcommand{\class}{Fundamentos de bases de datos}
+\newcommand{\term}{Facultad de Ciencias UNAM}
+\newcommand{\examnum}{Practica 03 - Consideraciones de Diseño}
+\newcommand{\examdate}{29/03/2022}
+\newcommand{\name}{Jurassic Team}
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{\term}\\
+\textbf{\examnum} & \textbf{\name}\\
+\textbf{\examdate}
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\section*{Restricciones del modelo}
+    
+\begin{itemize}
+	\item \textbf{Supervisar} tiene restricción de participación total y es de cardinalidad, uno con ambas entidades: \textit{Estetica} y \textit{Supervisor}.
+	\item \textbf{Trabajar} tiene restricción de participación parcial y es de cardinalidad muchos a muchos con ambas entidades: \textit{Estetica} y \textit{Trabajador}.
+	\item \textbf{Vender} tiene restricción de participación parcial y es de cardinalidad muchos a muchos con ambas entidades: \textit{Estetica} y \textit{Producto}.
+	\item \textbf{Registrar} tiene restricción de participación total del lado de \textit{Recibo} y participación parcial del lado de \textit{Estética}. Con cardinalidad uno del lado de \textit{Estetica} y muchos del lado de \textit{Recibo}
+	\item \textbf{Anexar} tiene restricción de participación total del lado de \textit{ReciboProducto} y participación parcial del lado de \textit{Producto}. Con cardinalidad muchos en ambos lados
+	\item \textbf{Asociar} tiene restricción de participación total del lado de \textit{Tarjeta} y participación parcial del lado de \textit{Dueño}. Con cardinalidad uno del lado de \textit{Dueño} y muchos del lado de \textit{Tarjeta}
+	\item \textbf{Pagar} tiene restricción de participación parcial de ambos lados \textit{Recibo} y \textit{Estética}. Con cardinalidad uno del lado de \textit{Dueño} y muchos del lado de \textit{Recibo}
+	\item \textbf{Pertenecer} tiene restricción de participación total del lado de \textit{Mascota} y participación parcial del lado de \textit{Dueño}. Con cardinalidad uno del lado de \textit{Dueño} y muchos del lado de \textit{Mascota}
+	\item \textbf{Realizar} tiene restricción de participación total del lado de \textit{Servicio} y participación parcial del lado de \textit{Mascota}. Con cardinalidad uno del lado de \textit{Mascota} y muchos del lado de \textit{Servicio}
+	\item \textbf{Listar} tiene restricción de participación total de ambos lados \textit{Recibo} y \textit{ReciboServicio}. Con cardinalidad uno del lado de \textit{ReciboServicio} y muchos del lado de \textit{Servicio}
+	\item \textbf{Procurar} tiene restricción de participación total del lado de \textit{Trat.Estetico} y participación parcial del lado de \textit{Estilista}. Con cardinalidad uno del lado de \textit{Estilista} y muchos del lado de \textit{Trat.Estetico}
+	\item \textbf{Atender} tiene restricción de participación total del lado de \textit{Consulta} y participación parcial del lado de \textit{Veterinario}. Con cardinalidad uno del lado de \textit{Veterinario} y muchos del lado de \textit{Consulta}
+\end{itemize}
+
+\section*{Consideraciones de diseño}
+
+\begin{itemize}
+	\item La relación \textbf{Supervisar} entre \textit{Estetica} y \textit{Supervisor} es de tipo total y uno a uno en ambos sentidos debido a que se asume que hay un único supervisor por \textit{Estetica} y que este solo supervisa una sola \textit{Estetica}.
+	\item Se consideran dos tipos de \textit{Recibo} para diferenciar entre compras de productos y consumo de algún servicio.
+	\item La entidad \textit{Trabajador} tiene como relación \textbf{Trabajar} con la entidad \textit{Estetica} de manera muchos a muchos para permitir que haya transferencias de trabajadores en caso de ser necesario. Por ejemplo un veterinario haciendo una consulta especial en otra estética porque un paciente se mudó o llego de emergencia.
+	\item Siguiendo la misma logica del punto anterior, \textit{Trabajador} no se considera entidad debil ya que permite registrar a una persona previo a considerar una \textit{Estetica} donde va a \textbf{Trabajar}.
+	\item La entidad de \textit{Tarjeta} se considera débil debido a que no se debe permitir registrar ninguna tarjeta que no pertenezca a un \textit{Dueño}.
+	\item Los atributos \texttt{ServicioBaño} y \texttt{ServicioObservacion} representan valores booleanos que indican si el respectivo tipo de servicio se ofrece en la \textit{Estetica}. Solo se consideran estos dos servicios debido a que son los estipulados en el documento de requerimientos pero existe posibilidad de agregar atributos adicionales si existen otros servicios.
+\end{itemize}
+
+\end{document}

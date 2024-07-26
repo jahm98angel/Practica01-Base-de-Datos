@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"laboratorio","l":"Dueño"},{"p":"laboratorio","l":"Estetica"},{"p":"laboratorio","l":"FileHandler"},{"p":"laboratorio","l":"Mascota"},{"p":"laboratorio","l":"Parseable"},{"p":"laboratorio","l":"Practica02"}]

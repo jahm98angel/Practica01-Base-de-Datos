@@ -1,0 +1,56 @@
+@options
+@packages
+-classpath
+'/home/Hylandude/.m2/repository/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Practica09 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Practica09 1.0-SNAPSHOT API'
+veterinaria.Servicio
+veterinaria.Repositorio
+veterinaria.Modelo
+veterinaria
+veterinaria.Conexion
+/home/Hylandude/.m2/repository/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar = 1652930981153
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/src/main/java = 1652930161453
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/package-search-index.js = 1653004056349
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/element-list = 1653004056275
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/constant-values.html = 1653004056299
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/type-search-index.js = 1653004056351
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/script.js = 1653004056371
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/overview-summary.html = 1653004056367
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/stylesheet.css = 1653004056370
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/help-doc.html = 1653004056369
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/package-search-index.zip = 1653004056351
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/allclasses.html = 1653004056363
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/allpackages-index.html = 1653004056358
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/allclasses-index.html = 1653004056356
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/type-search-index.zip = 1653004056351
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/index-all.html = 1653004056353
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/index.html = 1653004056366
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/search.js = 1653004056371
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/deprecated-list.html = 1653004056361
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/member-search-index.js = 1653004056352
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/javadoc.sh = 1653004040307
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/member-search-index.zip = 1653004056352
+/home/Hylandude/Documents/Escuela/Semestre10/FundamentosBasesDeDatos/Practica09/target/site/apidocs/overview-tree.html = 1653004056328

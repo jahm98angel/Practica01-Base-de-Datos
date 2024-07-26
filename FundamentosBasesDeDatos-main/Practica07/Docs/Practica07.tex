@@ -1,0 +1,76 @@
+
+  
+\documentclass{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{upgreek}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{dsfont}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usetikzlibrary{matrix}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\examnum}{\class}{\name}
+\runningheadrule
+\newcommand{\class}{Fundamentos de bases de datos}
+\newcommand{\term}{Facultad de Ciencias UNAM}
+\newcommand{\examnum}{Practica 07}
+\newcommand{\examdate}{03/05/2022}
+\newcommand{\name}{Jurassic Team}
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{\term}\\
+\textbf{\examnum} & \textbf{\name}\\
+\textbf{\examdate}
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\section*{Preguntas}
+
+	\begin{enumerate}
+		\item ¿Qué es una política de mantenimiento de llaves foráneas?
+		\item Para cada política que investigaron, ¿Cómo se indica en SQL?
+		\item Para cada política que investigaron, ¿Cuál es su objeto y su funcionamiento?
+		\item Para cada politica que investigaron, ¿Cuáles son sus ventajas y desventajas?
+		\item Con base a lo anterior, ¿Cuál política utilizarán para su esquema, y porqué motivo?
+	\end{enumerate}
+
+\section*{Respuestas}
+
+	\begin{enumerate}
+		\item Son acciones que se realizan sobre las entidades hijas de un padre este se elimina o actualiza la llave primaria. Existen diferentes tipos de políticas de mantenimiento que pueden eliminar, prohibir, actualizar a un valor por omisión o no hacer nada dependiendo de como sean configuradas. Las políticas de metimiento se configuran por cada constraint en una tabla. En la practica rara vez se actualiza la llave primaria de una entidad (es preferible eliminar y crear de nuevo con la llave correcta) por lo que las políticas usualmente son aplicadas al momento de eliminar.
+		\item Se indican con \texttt{ON DELETE} y \texttt{ON UPDATE} seguido de esto se debe especificar la acción a realizar que puede ser cualquiera de las siguientes: \texttt{SET NULL, SET DEFAULT, RESTRICT, NO ACTION, CASCADE}
+		\item \begin{enumerate}
+			\item \texttt{SET NULL}: Pone la referencia a la tabla padre con el valor \texttt{NULL}
+			\item \texttt{SET DEFAULT}: Pone la referencia a la tabla padre con el valor por omisión que se definió durante la creación de la tabla hija.
+			\item \texttt{RESTRICT}: Impide que se elimine la tabla padre sin antes eliminar o cambiar las referencias en los hijos afectados.
+			\item \texttt{NO ACTION}: No realiza ninguna acción.
+			\item \texttt{CASCADE}: Elimina los valores de la tabla hija que tengan la referencia al padre.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item \texttt{SET NULL}: \textbf{Ventajas}: Conserva toda la información, no altera registros. \textbf{Desventajas}: Imposible de implementar si la restricción de \texttt{NOT NULL} esta en efecto.
+			\item \texttt{SET DEFAULT}: \textbf{Ventajas}: Conserva toda la información, los hijos se asignan a un valor conocido. \textbf{Desventajas}: Puede ocasionar efectos secundarios no deseados, se debe de definir un valor por omisión al momento de crear la tabla hija
+			\item \texttt{RESTRICT}: \textbf{Ventajas}: Seguridad de que no se eliminan datos de manera accidental. \textbf{Desventajas}: Es necesario actualizar o eliminar todos los hijos a mano antes de hacer un cambio en el padre.
+			\item \texttt{NO ACTION}: \textbf{Ventajas}: No hay que pensar en la implementación \textbf{Desventajas}: Produce efectos secundarios no deseados, restricciones en las columnas puede hacer que falle
+			\item \texttt{CASCADE}: \textbf{Ventajas}: Es la implementación más común, el comportamiento es natural si se elimina un dato sus dependientes también deben de eliminarse \textbf{Desventajas}: Riesgo de accidentalmente eliminar multiples entradas a traves de distintas tablas, operación más costosa
+		\end{enumerate}
+		\item Elegimos la implementación con \texttt{CASCADE} para todas las restricciones de llave foranea en las tablas. Esto es debido a que tenemos restricciones del tipo \texttt{NOT NULL}, no existen valores por omision definidos y \texttt{RESTRICT} solo causaria problemas al tratar de borrar algún dato en tablas como \textit{Estetica} o \textit{Dueño} ya que tienen demasiadas dependencias.
+	\end{enumerate}
+
+\section*{Fuentes}
+
+\begin{itemize}
+	\item \texttt{https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-foreign-key/}
+\end{itemize}
+
+\end{document}

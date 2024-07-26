@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"EjemploPractica2","l":"ArchivoNoExiste"},{"p":"EjemploPractica2","l":"EjemploPractica2"},{"p":"EjemploPractica2","l":"LeeryEscribir"},{"p":"EjemploPractica2","l":"Operador"},{"p":"EjemploPractica2","l":"OperadorArchivo"}]

@@ -1,0 +1,141 @@
+
+  
+\documentclass{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{upgreek}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{dsfont}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usetikzlibrary{matrix}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\examnum}{\class}{\name}
+\runningheadrule
+\newcommand{\class}{Fundamentos de bases de datos}
+\newcommand{\term}{Facultad de Ciencias UNAM}
+\newcommand{\examnum}{Practica 02 - Preguntas}
+\newcommand{\examdate}{22/03/2022}
+\newcommand{\name}{Jurassic Team}
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{\term}\\
+\textbf{\examnum} & \textbf{\name}\\
+\textbf{\examdate}
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\section*{Análisis de requerimientos}
+    \subsection{Requerimientos del candidato.}
+        \begin{itemize}
+            \item Guardar Datos de las estéticas.
+            \item Guardar Datos de los Clientes.
+            \item Guardar Datos de las Mascotas.
+            \item Tener registro de Clientes Frecuentes.
+            \item Tener registro y control de Clientes-Mascotas.
+            \item Guardar datos de pago a través de internet.
+            \item Llevar un control de ingresos.
+        \end{itemize}
+    \subsection{Comprensión del contexto del sistema.}
+        \begin{itemize}
+            \item Las estéticas deben de tener de uno a cuatro consultorios.
+            \item Las estéticas deben de tener una apartado de cuidado a las mascotas.
+            \item Un dueño puede tener varias mascotas.
+            \item Una mascota no puede estar en la estética sin un dueño.
+            \item Las estéticas deben identificar a los clientes frecuentes.
+            \item Cada cliente puede llevar a todas sus mascotas a consulta.
+            \item Cada mascota se considera una consulta independiente.
+            \item Identificar si el pago se realizará en la estética o en la página.
+            \item Identificar si el pago en la estética es en físico o con tarjeta.
+            \item Si el pago se realiza en la página, guardar datos de la tarjeta.
+            \item Llevar un registro de todos los pagos realizados.
+        \end{itemize}
+    \subsection{Requerimientos Funcionales.}
+        \begin{itemize}
+            \item Identificar a los clientes frecuentes.
+            \item Relacionar a las mascotas con sus respectivos dueños.
+            \item Saber cuantas consultas necesitará cada cliente.
+            \item Asignar cada consulta a un consultorio.
+            \item Identificar si el pago se realizará en la estética o en la página.
+            \item Guardar los datos de las tarjetas.
+            \item Tener un registro de todos los ingresos.
+            \item Identificar a cada mascota con un dueño.
+        \end{itemize}
+    \subsection{Requerimientos no Funcionales.}
+        \begin{itemize}
+            \item Almacenar datos de las estéticas.
+                \begin{itemize}
+                    \item Nombre de la estética.
+                    \item Estado.
+                    \item Calle.
+                    \item Número.
+                    \item CP.
+                    \item Teléfono.
+                    \item horario.
+                \end{itemize}
+            \item Asignar cuantos consultorios tiene la estética.
+            \item Almacenar datos de clientes.
+                \begin{itemize}
+                    \item Apellido Paterno.
+                    \item Apellido Materno.
+                    \item Nombre.
+                    \item CURP.
+                    \item Estado.
+                    \item Calle.
+                    \item Número.
+                    \item CP.
+                    \item Teléfono.
+                \end{itemize}
+            \item Almacenar datos de Mascotas.
+                \begin{itemize}
+                    \item Nombre.
+                    \item Edad.
+                    \item Peso.
+                    \item Especie.
+                    \item Raza.
+                \end{itemize}
+        \end{itemize}
+
+\noindent
+\rule[2ex]{\textwidth}{2pt}
+
+\section*{Preguntas}
+
+\begin{questions}
+	\question Menciona 5 diferencias entre almacenar la información utilizando un sistema de archivos a almacenarla utilizando una base de datos.
+
+	
+	\question Describe cual es mas conveniente utilizar (sistema de archivos o base de datos).
+\end{questions}
+
+\noindent
+\rule[2ex]{\textwidth}{2pt}
+
+\section*{Respuestas}
+\begin{questions}
+	\question 
+	\begin{itemize}
+		\item Para almacenar la información en un sistema de archivos es necesario definir la forma en la que se deberán guardar los datos, si en un archivo binario o de texto plano; y la organización de estos, como en objetos o líneas separadas por algún caracter especial. En un SMBD el mismo manejador se encargará de determinar cómo guardar los datos.
+		\item Con la información en un sistema de archivos se tiene que crear un método o función por cada consulta que se quiera realizar, por ejemplo devolver un conjunto de datos ordenado por uno u otro atributo implicaría dos formas para ordenar el mismo conjunto y se debería programar un mecanismo que devuelva el conjunto ordenado por cada criterio, o programar dos funciones que lo hicieran. Un SMBD cuenta ya con varios mecanismos para realizar este tipo de ordenamiento, ascendente, descendente, por uno u otro atributo, etc., así como muchos otros filtros que se pueden aplicar a un conjunto de datos.
+		\item El sistema de archivos no provee de un sistema de respaldo y recuperación de los datos, por lo que se pueden perder estos por algún incidente como un corte de energía eléctrica. Un SMBD cuenta con mecanismos de respaldo y recuperación de datos, que permiten recuperar los datos incluso con incidentes como un corte de energía.
+		\item El sistema de archivos provee menor seguridad en comparación con los mecanismos de seguridad que un SMBD tiene implementados.
+		\item Sólo un usuario puede acceder a la vez a un programa cuyos datos son almacenados en un sistema de archivos, mientras que a un SMBD pueden acceder varios usuarios al mismo tiempo.
+		
+	% https://www.geeksforgeeks.org/difference-between-file-system-and-dbms/
+	\end{itemize}
+	
+	\question Es más conveniente utilizar un SMBD para manipular los datos, ya que éste ha sido desarrollado, por muchos colaboradores, con ese propósito y a través del tiempo se van incorporando mejoras que incrementan la eficiencia en los procedimientos para almacenar y recuperar la información, mecanismos de seguridad, recuperación de datos etc. En contraste para manejar datos directamente en el sistema de archivos se tiene que programar todas las funciones de consulta, guardado, seguridad, recuperación, etc. y aún así es difícil tener la eficiencia y robustez que tiene un SMBD que ha sido mejorado por años.
+	
+\end{questions}
+
+\end{document}

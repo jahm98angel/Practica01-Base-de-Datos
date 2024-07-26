@@ -1,0 +1,247 @@
+
+  
+\documentclass{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{upgreek}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{dsfont}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usetikzlibrary{matrix}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\examnum}{\class}{\name}
+\runningheadrule
+\newcommand{\class}{Fundamentos de bases de datos}
+\newcommand{\term}{Facultad de Ciencias UNAM}
+\newcommand{\examnum}{Practica 05}
+\newcommand{\examdate}{04/20/2022}
+\newcommand{\name}{Jurassic Team}
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{\term}\\
+\textbf{\examnum} & \textbf{\name}\\
+\textbf{\examdate}
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\section*{Dominios}
+
+	A continuación se listan los dominios de cada uno de los atributos para todas las entidades. Las llaves primarias están \textit{italizadas}, las llaves foráneas están en \textbf{negritas} y las llaves compuestas se indican con \underline{subrayado}.
+
+\begin{itemize}
+	\item \textbf{Estetica}
+		\begin{itemize}
+			\item \textit{IdEstetica}: Numero natural excluyendo al 0.
+			\item \textbf{CURPSupervisor}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item Nombre: Cadena de hasta 50 caracteres.
+			\item ServicioObservacion: Valor booleano.
+			\item ServicioBaño: Valor bolea.
+			\item Telefono: Cadena de exactamente 10 dígitos.
+			\item Calle: Cadena de hasta 50 caracteres.
+			\item Numero: Cadena de hasta 50 caracteres.
+			\item Estado: Cadena de hasta 50 caracteres.
+			\item CP: Cadena de exactamente 5 dígitos.
+			\item NumConsultorios: Numero entre 0-4.
+			\item Horario: Cadena con la estructura "XX:yy - ZZ:ww" donde "XX" y "ZZ" son números de dos dígitos 00-23 y "yy" y "ww" son números de dos digitos 00:59. Que representa dos horas separadas por un guión.
+		\end{itemize}
+		
+	\item \textbf{Supervisor}
+		\begin{itemize}
+			\item \textit{CURP}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item Telefono: Cadena de exactamente 10 dígitos.
+			\item Calle: Cadena de hasta 50 caracteres.
+			\item Numero: Cadena de hasta 50 caracteres.
+			\item Estado: Cadena de hasta 50 caracteres.
+			\item CP: Cadena de exactamente 5 dígitos.
+			\item FechaNac: Cadena con la estructura "DD/MM/AAAA" que representa una fecha valida en el calendario con el formato día/mes/año
+			\item Nombre: Cadena de hasta 50 caracteres.
+			\item Paterno: Cadena de hasta 50 caracteres.
+			\item Materno: Cadena de hasta 50 caracteres.
+			\item Salario: Numero de real positivo con dos decimales de precisión.
+			\item Genero: Cadena de hasta 50 caracteres. (aquí no se discriminan identidades no binarias)
+			\item Periodo: Cadena de hasta 50 caracteres.
+			\item RFC: Cadena de exactamente 13 caracteres alfanuméricos.
+			\item HoraInicio: Cadena "XX:yy" donde "XX" son números de dos dígitos 00-23 y "yy" son números de dos dígitos 00:59. Que representa una hora.
+			\item HoraFin: Cadena "XX:yy" donde "XX" son números de dos dígitos 00-23 y "yy" son números de dos dígitos 00:59. Que representa una hora. 
+		\end{itemize}
+		
+	\item \textbf{Estilista}
+		\begin{itemize}
+			\item \textit{CURP}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item Telefono: Cadena de exactamente 10 dígitos.
+			\item Calle: Cadena de hasta 50 caracteres.
+			\item Numero: Cadena de hasta 50 caracteres.
+			\item Estado: Cadena de hasta 50 caracteres.
+			\item CP: Cadena de exactamente 5 dígitos.
+			\item FechaNac: Cadena con la estructura "DD/MM/AAAA" que representa una fecha valida en el calendario con el formato día/mes/año
+			\item Nombre: Cadena de hasta 50 caracteres.
+			\item Paterno: Cadena de hasta 50 caracteres.
+			\item Materno: Cadena de hasta 50 caracteres.
+			\item Salario: Numero de real positivo con dos decimales de precisión.
+			\item Genero: Cadena de hasta 50 caracteres. (aquí no se discriminan identidades no binarias)
+			\item Certificado: Cadena que especifica un certificado valido (El documento de requerimientos no da detalles respecto a la estructura de este)
+		\end{itemize}
+		
+	\item \textbf{Veterinario}
+		\begin{itemize}
+			\item \textit{CURP}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item Telefono: Cadena de exactamente 10 dígitos.
+			\item Calle: Cadena de hasta 50 caracteres.
+			\item Numero: Cadena de hasta 50 caracteres.
+			\item Estado: Cadena de hasta 50 caracteres.
+			\item CP: Cadena de exactamente 5 dígitos.
+			\item FechaNac: Cadena con la estructura "DD/MM/AAAA" que representa una fecha valida en el calendario con el formato día/mes/año
+			\item Nombre: Cadena de hasta 50 caracteres.
+			\item Paterno: Cadena de hasta 50 caracteres.
+			\item Materno: Cadena de hasta 50 caracteres.
+			\item Salario: Numero de real positivo con dos decimales de precisión.
+			\item Genero: Cadena de hasta 50 caracteres. (aquí no se discriminan identidades no binarias)
+			\item Certificado: Cadena que especifica un certificado valido (El documento de requerimientos no da detalles respecto a la estructura de este)
+			\item RFC: Cadena de exactamente 13 caracteres alfanuméricos.
+			\item HoraInicio: Cadena "XX:yy" donde "XX" son números de dos dígitos 00-23 y "yy" son números de dos dígitos 00:59. Que representa una hora.
+			\item HoraFin: Cadena "XX:yy" donde "XX" son números de dos dígitos 00-23 y "yy" son números de dos dígitos 00:59. Que representa una hora.
+			\item PacientesAct: Numero entero positivo incluyendo al 0.
+		\end{itemize}
+		
+	\item \textbf{Producto}
+		\begin{itemize}
+			\item \textit{Codigo}: Cadena alfanumérica de 8-12 caracteres que representa el SKU de un producto.
+			\item Tipo: Cadena de hasta 50 caracteres.
+			\item Descripcion: Cadena de hasta 500 caracteres.
+			\item CantidadInventario: Numero entero positivo incluyendo al 0.
+			\item ArchivoImg: Cadena que representa un URL donde se almacena una imagen.
+			\item Caducidad: Cadena con la estructura "DD/MM/AAAA" que representa una fecha valida en el calendario con el formato día/mes/año
+			\item Precio: Numero de real positivo con dos decimales de precisión.
+			\item Nombre: Cadena de hasta 50 caracteres.
+		\end{itemize}
+		
+	\item \textbf{Dueño}
+		\begin{itemize}
+			\item \textit{CURP}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item Telefono: Cadena de exactamente 10 dígitos.
+			\item Calle: Cadena de hasta 50 caracteres.
+			\item Numero: Cadena de hasta 50 caracteres.
+			\item Estado: Cadena de hasta 50 caracteres.
+			\item CP: Cadena de exactamente 5 dígitos.
+			\item FechaNac: Cadena con la estructura "DD/MM/AAAA" que representa una fecha valida en el calendario con el formato día/mes/año
+			\item Nombre: Cadena de hasta 50 caracteres.
+			\item Paterno: Cadena de hasta 50 caracteres.
+			\item Materno: Cadena de hasta 50 caracteres.
+			\item EsFrecuente: Valor booleano.
+			\item EMail: Cadena de hasta 320 con la estructura "A@B" donde A es el local de una dirección con hasta 64 caracteres y B es el dominio de la dirección con hasta 255 caracteres.
+		\end{itemize}
+		
+	\item \textbf{Mascota}
+		\begin{itemize}
+			\item \underline{Nombre}: Cadena de hasta 50 caracteres.
+			\item \underline{CURPDueño}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item Peso: Numero de real positivo con dos decimales de precisión.
+			\item Edad:  Numero entero positivo incluyendo al 0.
+			\item Esecie: Cadena de hasta 50 caracteres.
+		\end{itemize}
+		
+	\item \textbf{Tarjeta}
+		\begin{itemize}
+			\item \underline{NumTarjeta}: Cadena de exactamente 16 dígitos.
+			\item \underline{CURPDueño}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item Vencimiento: Cadena con la estructura "MM/AA" que representa una combinación de mes/año
+			\item Titular: Nombre legal completo del dueño de la tarjeta.
+		\end{itemize}
+		
+	\item \textbf{ReciboProducto}
+		\begin{itemize}
+			\item \textit{NumRecibo}: Cadena que representa el código único de un recibo (El documento de requerimientos no da detalles respecto a la estructura de este)
+			\item \textbf{IdEstetica}: Numero natural excluyendo al 0.
+			\item \textbf{CURPDueño}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item TipoDePago: Cadena de hasta 50 caracteres.
+		\end{itemize}	
+		
+	\item \textbf{ReciboServicio}
+		\begin{itemize}
+			\item \textit{NumRecibo}: Cadena que representa el código único de un recibo (El documento de requerimientos no da detalles respecto a la estructura de este)
+			\item \textbf{IdEstetica}: Numero natural excluyendo al 0.
+			\item \textbf{CURPDueño}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item TipoDePago: Cadena de hasta 50 caracteres.
+		\end{itemize}
+		
+	\item \textbf{ConsultaEmergencia}
+		\begin{itemize}
+			\item \textit{IdServicio}: Cadena que representa el código único de un servicio (El documento de requerimientos no da detalles respecto a la estructura de este)
+			\item \textbf{CURPVeterinario}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item \textbf{NumRecibo}: Cadena que representa el código único de un recibo.
+			\item \textbf{CURPDueño}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item \textbf{NombreMascota}: Cadena de hasta 50 caracteres.
+			\item Síntomas: Cadena de hasta 500 caracteres.
+			\item Código: Cadena que representa el código de emergencia veterinaria.
+			\item Procedimiento: Cadena de hasta 1500 caracteres.
+			\item Precio: Numero de real positivo con dos decimales de precisión.
+		\end{itemize}
+		
+	\item \textbf{ConsultaNormal}
+		\begin{itemize}
+			\item \textit{IdServicio}: Cadena que representa el código único de un servicio (El documento de requerimientos no da detalles respecto a la estructura de este)
+			\item \textbf{CURPVeterinario}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item \textbf{NumRecibo}: Cadena que representa el código único de un recibo.
+			\item \textbf{CURPDueño}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item \textbf{NombreMascota}: Cadena de hasta 50 caracteres.
+			\item FechaRevision: Cadena con la estructura "DD/MM/AAAA" que representa una fecha valida en el calendario con el formato día/mes/año
+			\item Motivo: Cadena de hasta 500 caracteres.
+			\item Precio: Numero de real positivo con dos decimales de precisión.
+			\item Estado: Cadena de hasta 50 caracteres.
+		\end{itemize}
+		
+	\item \textbf{Medicamento}
+		\begin{itemize}
+			\item \underline{IdServicio}: Cadena que representa el codigo unicao de un servicio (El documento de requerimientos no da detalles respecto a la estructura de este)
+			\item \underline{medicamento}: Cadena de hasta 50 caracteres.
+		\end{itemize}
+		
+	\item \textbf{TratEstetico}
+		\begin{itemize}
+			\item \textit{IdServicio}: Cadena que representa el código único de un servicio (El documento de requerimientos no da detalles respecto a la estructura de este)
+			\item \textbf{CURPEstilista}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item \textbf{NumRecibo}: Cadena que representa el código único de un recibo.
+			\item \textbf{CURPDueño}: Cadena de exactamente 18 Caracteres alfanuméricos.
+			\item \textbf{NombreMascota}: Cadena de hasta 50 caracteres.
+			\item Tipo: Cadena de hasta 50 caracteres.
+			\item Precio: Numero de real positivo con dos decimales de precisión.
+		\end{itemize}
+		
+	\item \textbf{Vender}
+		\begin{itemize}
+			\item \underline{IdEstetica}: Numero natural excluyendo al 0.
+			\item \underline{Codigo}: Cadena alfanumérica de 8-12 caracteres que representa el SKU de un producto.
+		\end{itemize}			
+	
+	\item \textbf{Anexar}
+		\begin{itemize}
+			\item \underline{Codigo}: Cadena alfanumérica de 8-12 caracteres que representa el SKU de un producto.
+			\item \underline{NumRecibo}: Cadena que representa el código único de un recibo.
+		\end{itemize}
+		
+	\item \textbf{TrabajarEstilista}
+		\begin{itemize}
+			\item \underline{IdEstetica}: Numero natural excluyendo al 0.
+			\item \underline{CURPEstilista}: Cadena de exactamente 18 Caracteres alfanuméricos.
+		\end{itemize}
+		
+	\item \textbf{TrabajarVeterinario}
+		\begin{itemize}
+			\item \underline{IdEstetica}: Numero natural excluyendo al 0.
+			\item \underline{CURPVeterinario}: Cadena de exactamente 18 Caracteres alfanuméricos.
+		\end{itemize}	
+	
+\end{itemize}
+
+\end{document}
